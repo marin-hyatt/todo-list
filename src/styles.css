@@ -1,0 +1,28 @@
+.project {
+  height: 300px;
+  width: 300px;
+  margin: 10px;
+  border-color: aquamarine;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+.todoDiv {
+  background-color: antiquewhite;
+  margin: 10px;
+  border-radius: 10px;
+  border-color: brown;
+  border-style: solid;
+}
+
+.todoPriorityHigh {
+  color: red;
+}
+
+.todoPriorityLow {
+  color: green;
+}
+
+.todoPriorityHigh {
+  color: goldenrod;
+}
