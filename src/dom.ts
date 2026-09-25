@@ -2,15 +2,32 @@ import { Project } from "./project";
 import "./styles.css";
 import { Todo, Priorities } from "./todo-item";
 
-export const createProject = (project: Project) => {
+const content = document.querySelector("#content");
+
+const clear = () => {
+  content?.replaceChildren();
+};
+
+export const createProjectGrid = (projects: Project[]) => {
+  clear();
   const content = document.querySelector("#content");
 
+  const projectGrid = document.createElement("div");
+  projectGrid.className = "projectGrid";
+
+  projects.forEach((project) => {
+    createProject(project, content!);
+  });
+
+  content?.appendChild(projectGrid);
+};
+
+export const createProject = (project: Project, parent: Element) => {
   const projectSquare = document.createElement("button");
   projectSquare.textContent = project.name;
   projectSquare.className = "project";
 
   projectSquare.addEventListener("click", (e) => {
-    console.log("event");
     // open project page with todos
     openTodoPage(project, content!);
   });
@@ -20,7 +37,7 @@ export const createProject = (project: Project) => {
   //   createTodo(todo, projectSquare);
   // });
 
-  content?.appendChild(projectSquare);
+  parent?.appendChild(projectSquare);
 };
 
 const createTodo = (todo: Todo, parent: HTMLDivElement) => {

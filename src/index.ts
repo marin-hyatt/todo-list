@@ -1,6 +1,6 @@
 // Set up todo list
 
-import { createProject } from "./dom";
+import { createProject, createProjectGrid } from "./dom";
 import { Project } from "./project";
 import { Todo } from "./todo-item";
 
@@ -11,4 +11,13 @@ const defaultTodo = new Todo(
   "low",
 );
 const defaultProject = new Project("First project", [defaultTodo]);
-createProject(defaultProject);
+
+// DOM stuff
+// Add Home button functionality
+const homeBtn = document.querySelector(".home");
+homeBtn?.addEventListener("click", (e: Event) => {
+  console.log("creating project grid");
+  createProjectGrid([defaultProject]);
+});
+
+createProjectGrid([defaultProject]);
